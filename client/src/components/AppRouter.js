@@ -4,11 +4,12 @@ import {ADMIN_ROUTE, BASKET_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE
 import Admin from "../pages/Admin";
 import Basket from "../pages/Basket";
 import Shop from "../pages/Shop";
-import Auth from "../pages/Auth";
+import Auth from "../pages/Auth/Auth";
 import DevicePage from "../pages/DevicePage";
+import {useSelector} from "react-redux";
 
 const AppRouter = () => {
-    const isAuth = false
+    const {isAuth} = useSelector(state=>state.userReducer)
     return (<Routes>
         {isAuth &&
         <Route>

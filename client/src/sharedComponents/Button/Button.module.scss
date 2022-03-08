@@ -1,0 +1,86 @@
+@import "src/assets/scss/variables";
+
+.btn{
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  border-radius: 0 0 10px 10px ;
+  justify-content: center;
+  align-items: center;
+  transition: border-radius .8s ease 0s, box-shadow .8s ease 0s;
+  &:hover{
+    border-radius: 10px;
+    transition: border-radius 0.8s ease 0.2s,box-shadow 0.8s ease 0.2s;
+    box-shadow: 0 0 20px rgba(73, 115, 255, 0.1);
+  }
+  &:hover .btn__waves{
+    top: -50px;
+  }
+  &__text{
+    color: antiquewhite;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    position: relative;
+    z-index: 1;
+  }
+  &__waves{
+    position: absolute;
+    background-color: $green;
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+    transition: top .8s ease 0s;
+    &:before,
+    &:after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 250%;
+      height: 250%;
+      transform: translate3d(-50%,-96%,0) rotate(0deg) scale(1);
+    }
+    &:before{
+      background-color: $dark__navBg;
+      border-radius: 48%;
+      animation: waves 5s infinite linear;
+    }
+    &:after{
+      background-color: rgba(29, 29, 29,0.5);
+      border-radius: 44%;
+
+      animation: waves 10s infinite linear;
+    }
+
+    &.active{
+      box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+      transition: top .8s ease 0s;
+      &:before,
+      &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 250%;
+        height: 250%;
+        transform: translate3d(-50%,-96%,0) rotate(0deg) scale(1);
+      }
+      &:before{
+        background-color: rgb(65, 65, 65);
+      }
+      &:after{
+        box-shadow: inset 0 0 15px rgba(29, 29, 29,0.5);
+        background:none ;
+      }
+    }
+  }
+}
+
+@keyframes waves{
+  0%{
+    transform: translate3d(-50%,-96%,0) rotate(0deg) scale(1);
+  }
+  100%{
+    transform: translate3d(-50%,-96%,0) rotate(360deg) scale(1);
+  }
+}

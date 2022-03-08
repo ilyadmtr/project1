@@ -1,0 +1,31 @@
+@import "src/assets/scss/variables";
+
+.input{
+  position: relative;
+
+  input{
+    height: 36px;
+    width: 100%;
+    background: none;
+    border-bottom: 1px dashed $dark__bg;
+    color:$mainColor;
+    transition: border-bottom .5s;
+  }
+  &:before{
+    content:'';
+    position: absolute;
+    left:0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: $dark__bg;
+    transition: all .3s ease 0s;
+    z-index: 10;
+  }
+  &.active:before{
+    width: 100%;
+  }
+  &.active input{
+    border-bottom:1px dashed rgba(0,0,0,0);
+  }
+}
