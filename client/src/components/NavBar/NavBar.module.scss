@@ -21,7 +21,8 @@
     -webkit-text-fill-color: transparent;
     font-weight: 600;
     transition: all .6s;
-    &:hover{
+
+    &:hover {
       background: url("../../assets/img/img.png") bottom no-repeat;
       background-clip: text;
       background-size: cover;
