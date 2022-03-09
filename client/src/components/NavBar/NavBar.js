@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-
 import st from './NavBar.module.scss'
 import Button from "../../sharedComponents/Button/Button";
 import {NavLink} from "react-router-dom";

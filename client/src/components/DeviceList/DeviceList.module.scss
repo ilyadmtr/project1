@@ -1,0 +1,10 @@
+
+.deviceList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px;
+  & > * {
+    min-width: 25%;
+    padding: 16px;
+  }
+}

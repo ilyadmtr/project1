@@ -1,6 +1,8 @@
 import React from 'react';
 import st from  './Shop.module.scss'
 import TypeBar from "../../components/TypeBar/TypeBar";
+import BrandBar from "../../components/BrandBar/BrandBar";
+import DeviceList from "../../components/DeviceList/DeviceList";
 
 const Shop = () => {
     return (
@@ -9,7 +11,8 @@ const Shop = () => {
                 <TypeBar/>
             </div>
             <div className={st.shop__main}>
-                SHOP
+                <BrandBar/>
+                <DeviceList/>
             </div>
 
         </div>
