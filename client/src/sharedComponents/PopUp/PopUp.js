@@ -2,20 +2,17 @@ import React from 'react';
 import st from './PopUp.module.scss';
 
 const PopUp = ({children, show, onHide}) => {
-    let unshow = false;
-    if(show!=='firstMount'){
-         unshow=true
-    }
+
     return (
         <div className={
-            `${show!=='firstMount'&&show ? `${st.active}` : ''} ${st.popup} ${unshow ? `${st.unshow}` : ''}`
+            `${show ? `${st.active}` : ''} ${st.popup} }`
         }
         >
+            {children}
             <div
                 onClick={onHide}
                 className={st.popup__close}
             ></div>
-            {children}
         </div>
     );
 };

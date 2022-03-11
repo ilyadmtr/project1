@@ -7,9 +7,9 @@ import CreateBrand from "../../components/popups/CreateBrand/CreateBrand";
 import CreateDevice from "../../components/popups/CreateDevice/CreateDevice";
 
 const Admin = () => {
-    const [popUpType, setHideType] = useState('firstMount')
-    const [popUpBrand, setHideBrand] = useState('firstMount')
-    const [popUpDevice, setHideDevice] = useState('firstMount')
+    const [popUpType, setHideType] = useState(false)
+    const [popUpBrand, setHideBrand] = useState(false)
+    const [popUpDevice, setHideDevice] = useState(false)
 
     return (
         <div className={`_container ${st.admin}`}>

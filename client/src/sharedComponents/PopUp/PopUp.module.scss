@@ -1,33 +1,8 @@
 @import "src/assets/scss/variables";
 
-@keyframes show {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-@keyframes unShow {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  99% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-  }
-}
-
 .popup {
   position: fixed;
-  z-index: 100;
+  z-index:-100;
   top: 50%;
   left: 50%;
   display: flex;
@@ -36,14 +11,18 @@
   border-radius: 10px;
   background: $dark__navBg;
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0);
-
-  &.unshow {
-    animation: unShow 0.3s forwards;
-  }
+  transform: translate(-50%, -50%) ;
+  transition: opacity 0.5s ;
 
   &.active {
-    animation: show 0.3s forwards ;
+    z-index: 100;
+    opacity: 1;
+  }
+  & :first-child{
+    transform: scale(0);
+  }
+  &.active :first-child{
+    transform: scale(1);
   }
 
   &__close {
