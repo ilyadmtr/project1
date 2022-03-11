@@ -4,12 +4,17 @@ import st from './NavBar.module.scss'
 import Button from "../../sharedComponents/Button/Button";
 import {NavLink} from "react-router-dom";
 import {ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE} from "../../utils/consts";
-import {setIsAuth} from "../../store/reducer/userSlice";
+import {setIsAuth, setUser} from "../../store/reducer/userSlice";
 import {CSSTransition, SwitchTransition} from "react-transition-group";
 
 const NavBar = () => {
     const {isAuth} = useSelector(state => state.userReducer)
     const dispatch = useDispatch()
+
+    const logOut = () => {
+        dispatch(setUser({}))
+        dispatch(setIsAuth(false))
+    }
 
     return (
         <div className={st.navbar}>
@@ -37,7 +42,7 @@ const NavBar = () => {
                             <NavLink to={SHOP_ROUTE} className='btn'>
                                 <Button width={200}
                                         height={48}
-                                        onClick={() =>dispatch(setIsAuth(false))}
+                                        onClick={logOut}
                                         bgColor='#a72626'
                                 >
                                     log out
@@ -51,7 +56,6 @@ const NavBar = () => {
                                 <Button
                                     width={160}
                                     height={48}
-                                    onClick={() => dispatch(setIsAuth(true))}
                                 >
                                     log in
                                 </Button>

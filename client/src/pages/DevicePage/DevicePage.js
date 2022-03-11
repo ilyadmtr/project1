@@ -1,33 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import st from './DevicePage.module.scss'
 import Button from "../../sharedComponents/Button/Button";
+import {useParams} from "react-router-dom";
+import {fetchOneDevice} from "../../api/deviceAPI";
 
 const DevicePage = () => {
 
-    const device = {
-        id: 1, name: 'Iphone 12 pro',
-        price: 1000, rating: 5,
-        img: `https://n1s1.hsmedia.ru/00/07/3b/00073b44cbcc628624197c16b01a91a0/728x1294_1_2052739535b7028fbe538a7278ecd7c8@1152x2048_0xac120003_19331758041591010989.jpg`
-    }
-
-    const description = [
-        {id: 1, title: 'Оперативная память', description: '5гб'},
-        {id: 2, title: 'Оперативная память', description: '5гб'},
-        {id: 3, title: 'Камера ', description: '12 мп'},
-        {id: 4, title: 'Камера ', description: '12 мп'},
-        {id: 5, title: 'Процессор', description: 'Пентиум 3'},
-        {id: 6, title: 'Процессор', description: 'Пентиум 3'},
-        {id: 7, title: 'Кол-во ядер', description: '2'},
-        {id: 8, title: 'Кол-во ядер', description: '2'},
-        {id: 9, title: 'Аккумулятор', description: '4000'},
-        {id: 10, title: 'Аккумулятор', description: '4000'},
-        ]
+    const [device,setDevice] =useState({info:[]})
+    const {id}=useParams()
+    useEffect(()=>{
+        fetchOneDevice(id).then(data=>setDevice(data))
+    },[])
 
     return (
         <div className={`_container`}>
             <div className={st.devicePage}>
                 <div className={st.devicePage__block}>
-                    <img src={device.img} alt={device.name}/>
+                    <img src={process.env.REACT_APP_API_URL + device.img} alt={device.name}/>
                 </div>
                 <div className={st.devicePage__block}>
                     <h2 className={st.devicePage__block_title}>
@@ -54,7 +43,7 @@ const DevicePage = () => {
             </div>
             <div className={st.characteristic}>
                 <h1 className={st.characteristic__title}>characteristic</h1>
-                {description.map((info)=>
+                {device.info.map((info)=>
                     <div
                         key={info.id}
                         className={st.characteristic__line}>

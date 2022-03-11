@@ -10,7 +10,7 @@ const DeviceItem = ({device}) => {
     return (
         <div className={st.deviceItemCon} onClick={()=>navigate(`${DEVICE_ROUTE}/${device.id}`)}>
             <div className={st.deviceItem}>
-                <ParallaxImage src={device.img} alt={device.name}/>
+                <ParallaxImage src={process.env.REACT_APP_API_URL + device.img} alt={device.name}/>
                 <div className={st.deviceItem__main}>
                     <div className={st.deviceItem__main_title}>
                         Samsung...
