@@ -35,7 +35,6 @@ const initialState = {
     ],
     selectedType:{},
     selectedBrand:{},
-    popUpType:false,
 }
 
 const userSlice = createSlice({
@@ -57,9 +56,6 @@ const userSlice = createSlice({
         setSelectedBrand(state,action){
             state.selectedBrand = action.payload
         },
-        setPopUpType(state,action){
-            state.popUpType = action.payload
-        }
     }
 })
 
@@ -70,5 +66,4 @@ export const {
     setDevices,
     setSelectedType,
     setSelectedBrand,
-    setPopUpType,
 } = userSlice.actions

@@ -10,6 +10,7 @@ import {CSSTransition, SwitchTransition} from "react-transition-group";
 const NavBar = () => {
     const {isAuth} = useSelector(state => state.userReducer)
     const dispatch = useDispatch()
+
     return (
         <div className={st.navbar}>
             <NavLink to={SHOP_ROUTE} className={st.navbar__logo}>

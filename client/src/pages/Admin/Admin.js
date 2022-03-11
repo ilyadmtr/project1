@@ -2,23 +2,22 @@ import React, {useState} from 'react';
 import st from './Admin.module.scss'
 import Button from "../../sharedComponents/Button/Button";
 import CreateType from "../../components/popups/CreateType/CreateType";
-import {useDispatch, useSelector} from "react-redux";
-import {setPopUpType} from "../../store/reducer/deviceSlice";
+import PopUp from "../../sharedComponents/PopUp/PopUp";
+import CreateBrand from "../../components/popups/CreateBrand/CreateBrand";
+import CreateDevice from "../../components/popups/CreateDevice/CreateDevice";
 
 const Admin = () => {
-    const {popUpType}=useSelector(state=>state.deviceReducer)
-    const dispatch=useDispatch()
-    const [unShow,setUnShow]=useState(false)
+    const [popUpType, setHideType] = useState('firstMount')
+    const [popUpBrand, setHideBrand] = useState('firstMount')
+    const [popUpDevice, setHideDevice] = useState('firstMount')
+
     return (
         <div className={`_container ${st.admin}`}>
             <Button
                 width={300}
                 height={60}
                 bgType={true}
-                onClick={()=>{
-                    dispatch(setPopUpType(true))
-                    setUnShow(true)
-                }}
+                onClick={() => setHideType(true)}
             >
                 add type
             </Button>
@@ -26,6 +25,7 @@ const Admin = () => {
                 width={300}
                 height={60}
                 bgType={true}
+                onClick={() => setHideBrand(true)}
             >
                 add brand
             </Button>
@@ -33,12 +33,19 @@ const Admin = () => {
                 width={300}
                 height={60}
                 bgType={true}
+                onClick={() => setHideDevice(true)}
             >
                 add device
             </Button>
-            <CreateType unShow={unShow} show={popUpType} onHide={()=>{
-                dispatch(setPopUpType(false))
-            }}/>
+            <PopUp show={popUpType} onHide={() => setHideType(false)}>
+                <CreateType onHide={() => setHideType(false)}/>
+            </PopUp>
+            <PopUp show={popUpBrand} onHide={() => setHideBrand(false)}>
+                <CreateBrand onHide={() => setHideBrand(false)}/>
+            </PopUp>
+            <PopUp show={popUpDevice} onHide={() => setHideDevice(false)}>
+                <CreateDevice onHide={() => setHideDevice(false)}/>
+            </PopUp>
         </div>
     );
 };

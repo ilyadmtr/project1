@@ -3,17 +3,9 @@ import st from './CreateType.module.scss'
 import Input from "../../../sharedComponents/Input/Input";
 import Button from "../../../sharedComponents/Button/Button";
 
-const CreateType = ({unShow,show,onHide}) => {
+const CreateType = ({onHide}) => {
     return (
-        <div className={
-            `${show ?`${st.active}`:''} ${st.popupType} ${unShow ?`${st.unShow}`:''}`
-        }
-        >
-            <div
-                onClick={onHide}
-                className={st.popupType__footer_before}
-            > </div>
-            <div className={st.popupType__container}>
+            <div className={st.popupType}>
                 <div className={st.popupType__head}>
                     <div className={st.popupType__head_title}>
                         add type
@@ -30,7 +22,6 @@ const CreateType = ({unShow,show,onHide}) => {
                     <Button width={200} height={42} >ADD </Button>
                 </div>
             </div>
-        </div>
     );
 };
 

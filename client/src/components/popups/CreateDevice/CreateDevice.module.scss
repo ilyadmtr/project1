@@ -1,0 +1,33 @@
+
+.popupDevice {
+
+  padding: 24px;
+
+  & > *:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  &__head {
+    width: 100%;
+
+    &_title {
+      text-align: center;
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+  }
+
+  &__body {
+    width: 100%;
+  }
+
+  &__footer {
+    display: flex;
+
+    & > *:not(:last-child) {
+      margin-right: 42px;
+    }
+  }
+}
