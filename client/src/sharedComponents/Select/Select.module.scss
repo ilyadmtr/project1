@@ -1,6 +1,41 @@
 
-.select{
-  &__option{
-color: #006bd7;
+.select {
+  min-height: 30px;
+  height: auto;
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+
+  &__head {
+  }
+
+  &__option {
+    &_container {
+      min-width: 100%;
+      overflow: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      max-height: 0;
+      transition: all 0.3s ease-in-out 0s;
+      background: #000;
+      z-index: 100;
+      opacity: 0;
+    }
+    &:hover{
+      color: #003467;
+    }
+    &.active{
+      color: #6e2929;
+    }
+
+    color: #006bd7;
+  }
+
+  &.active {
+    .select__option_container {
+      opacity: 1;
+      max-height: 1000px;
+    }
   }
 }

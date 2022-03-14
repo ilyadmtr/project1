@@ -14,6 +14,7 @@ const NavBar = () => {
     const logOut = () => {
         dispatch(setUser({}))
         dispatch(setIsAuth(false))
+        localStorage.setItem('token','')
     }
 
     return (

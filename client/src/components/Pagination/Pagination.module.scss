@@ -1,0 +1,19 @@
+
+
+.pagination{
+  display: flex;
+  font-size: 24px;
+  &__page{
+    color:blueviolet;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    &:not(:last-child){
+      margin-right: 10px;
+    }
+    &.active{
+      color:green;
+    }
+  }
+}

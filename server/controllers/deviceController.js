@@ -27,6 +27,7 @@ class DeviceController {
 
             return res.json(device)
         } catch (e) {
+            console.log('error',e.message)
             next(ApiError.badRequest(e.message))
         }
     }
