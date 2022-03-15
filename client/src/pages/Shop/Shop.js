@@ -16,7 +16,7 @@ const Shop = () => {
     useEffect(() => {
         fetchTypes().then(data => dispatch(setTypes(data)))
         fetchBrands().then(data => dispatch(setBrands(data)))
-        fetchDevices(null, null, 1, 2).then(data => {
+        fetchDevices(null, null, page, limit).then(data => {
                 dispatch(setDevices(data.rows))
                 dispatch(setTotalCount(data.count))
             }
@@ -24,7 +24,7 @@ const Shop = () => {
     }, [])
 
     useEffect(() => {
-        fetchDevices(selectedType.id, selectedBrand.id, page, 2).then(data => {
+        fetchDevices(selectedType?.id, selectedBrand?.id, page, limit).then(data => {
                 dispatch(setDevices(data.rows))
                 dispatch(setTotalCount(data.count))
             }
