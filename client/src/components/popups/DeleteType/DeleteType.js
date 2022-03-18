@@ -14,7 +14,6 @@ const DeleteType = ({onHide}) => {
             dispatch(setSelectedType(null))
             onHide()
         })
-
     }
     return (
         <div className={st.deleteType}>
